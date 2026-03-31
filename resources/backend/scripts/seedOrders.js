@@ -6,7 +6,10 @@ const Category = require("../models/categoryModel");
 
 const seedOrders = async () => {
     try {
+
+        console.log("MONGODB_URI FROM ENV:", process.env.MONGODB_URI)
         const uri = process.env.MONGODB_URI || config.databaseURI;
+        console.log("MONGODB_URI FROM CONFIG:", config.databaseURI)
         console.log(`⏳ Connecting to MongoDB at ${uri}...`);
         await mongoose.connect(uri, { serverSelectionTimeoutMS: 5000 });
         console.log("✅ Connected.");
